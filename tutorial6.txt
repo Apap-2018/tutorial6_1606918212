@@ -1,0 +1,29 @@
+Adyanissa Farsya Kirana 1606918212
+
+1. Mengapa perlu menginisiasi object PilotModel, sedangkan yang ditest hanya FlightModel?
+
+Jawab: not null constraint pilot di FlightModel bisa diflush ke DB memerlukan PilotModel
+
+2. Jelaskan apa yang akan terjadi jika object PilotModel dihapus dan tidak dilakukan setPilot pada FlightModel?
+
+Jawab: Akan terjadi error saat entity manager commit ke DB karena melanggar not null constraint (foreign key pilot bernilai null)
+
+3. Jelaskan apa yang dilakukan oleh code 1!
+
+Jawab: Melakukan mock hasil dari findByFlightNumber dengan flight yang sudah dibuat sebelumnya sehingga ketika dipanggil tidak melakukan fungsinya tapi mengembalikan nilai flight yang ada di mock
+
+4. Jelaskan apa yang dilakukan oleh code 2!
+
+Jawab: Melakukan mock hasil dari findByFlightNumber dengan flight yang sudah dibuat sebelumnya sehingga ketika dipanggil tidak melakukan fungsinya tapi mengembalikan nilai flight yang ada di mock
+
+5. Jelaskan apa yang dilakukan oleh code 3!
+
+Jawab: Melakukan assert bahwa request yang dilakukan memiliki hasil status code 200 (isOk)
+
+6. Jelaskan apa yang dilakukan oleh code 4!
+
+Jawab: Melakukan assert bahwa json memiliki key pada body,  flightNumber bernilai sama dengan flightNumber flightModel yang sebelumnya dibuat dan mengetes flight yang kita mock di flightController sama dengan yang kita buat
+
+7. Jelaskan anotasi @ResponseBody yang ada pada route "/flight/view"
+
+Jawab: Mengembalikan respon berupa JSON dengan melakuakn serialize setelah mengembalikan object dan diberikan ke http
